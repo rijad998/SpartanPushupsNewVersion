@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		837ACD2122C229F7009B53E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD2022C229F7009B53E2 /* AppDelegate.swift */; };
-		837ACD2322C229F7009B53E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD2222C229F7009B53E2 /* ViewController.swift */; };
+		837ACD2322C229F7009B53E2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD2222C229F7009B53E2 /* MainViewController.swift */; };
 		837ACD2822C229F8009B53E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD2722C229F8009B53E2 /* Assets.xcassets */; };
 		837ACD2B22C229F8009B53E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD2922C229F8009B53E2 /* LaunchScreen.storyboard */; };
 		837ACD3622C229F8009B53E2 /* SpartanPushupsNewVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD3522C229F8009B53E2 /* SpartanPushupsNewVersionTests.swift */; };
@@ -28,6 +28,7 @@
 		837ACD6F22C22C4B009B53E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD6B22C22C4B009B53E2 /* Extensions.swift */; };
 		837ACD7022C22C4B009B53E2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD6C22C22C4B009B53E2 /* Config.swift */; };
 		837ACD7122C22C4B009B53E2 /* DeviceProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD6D22C22C4B009B53E2 /* DeviceProperties.swift */; };
+		837ACD7322C243A8009B53E2 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD7222C243A8009B53E2 /* DataHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,7 @@
 /* Begin PBXFileReference section */
 		837ACD1D22C229F7009B53E2 /* SpartanPushupsNewVersion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartanPushupsNewVersion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837ACD2022C229F7009B53E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		837ACD2222C229F7009B53E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		837ACD2222C229F7009B53E2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		837ACD2722C229F8009B53E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		837ACD2A22C229F8009B53E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		837ACD2C22C229F8009B53E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		837ACD6B22C22C4B009B53E2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		837ACD6C22C22C4B009B53E2 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		837ACD6D22C22C4B009B53E2 /* DeviceProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceProperties.swift; sourceTree = "<group>"; };
+		837ACD7222C243A8009B53E2 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +127,11 @@
 		837ACD1F22C229F7009B53E2 /* SpartanPushupsNewVersion */ = {
 			isa = PBXGroup;
 			children = (
-				837ACD6922C22C24009B53E2 /* Application Configuration */,
+				837ACD6922C22C24009B53E2 /* AppConfig */,
 				837ACD4E22C22B22009B53E2 /* Assets */,
 				837ACD2022C229F7009B53E2 /* AppDelegate.swift */,
-				837ACD2222C229F7009B53E2 /* ViewController.swift */,
+				837ACD2222C229F7009B53E2 /* MainViewController.swift */,
+				837ACD7222C243A8009B53E2 /* DataHandler.swift */,
 				837ACD2722C229F8009B53E2 /* Assets.xcassets */,
 				837ACD2922C229F8009B53E2 /* LaunchScreen.storyboard */,
 				837ACD2C22C229F8009B53E2 /* Info.plist */,
@@ -196,7 +199,7 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		837ACD6922C22C24009B53E2 /* Application Configuration */ = {
+		837ACD6922C22C24009B53E2 /* AppConfig */ = {
 			isa = PBXGroup;
 			children = (
 				837ACD6C22C22C4B009B53E2 /* Config.swift */,
@@ -204,7 +207,7 @@
 				837ACD6B22C22C4B009B53E2 /* Extensions.swift */,
 				837ACD6A22C22C4B009B53E2 /* Neon.swift */,
 			);
-			path = "Application Configuration";
+			path = AppConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,7 +351,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				837ACD2322C229F7009B53E2 /* ViewController.swift in Sources */,
+				837ACD2322C229F7009B53E2 /* MainViewController.swift in Sources */,
+				837ACD7322C243A8009B53E2 /* DataHandler.swift in Sources */,
 				837ACD6E22C22C4B009B53E2 /* Neon.swift in Sources */,
 				837ACD7122C22C4B009B53E2 /* DeviceProperties.swift in Sources */,
 				837ACD7022C22C4B009B53E2 /* Config.swift in Sources */,
