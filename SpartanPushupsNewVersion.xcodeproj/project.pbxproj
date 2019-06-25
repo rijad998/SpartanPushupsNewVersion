@@ -9,11 +9,25 @@
 /* Begin PBXBuildFile section */
 		837ACD2122C229F7009B53E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD2022C229F7009B53E2 /* AppDelegate.swift */; };
 		837ACD2322C229F7009B53E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD2222C229F7009B53E2 /* ViewController.swift */; };
-		837ACD2622C229F7009B53E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD2422C229F7009B53E2 /* Main.storyboard */; };
 		837ACD2822C229F8009B53E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD2722C229F8009B53E2 /* Assets.xcassets */; };
 		837ACD2B22C229F8009B53E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD2922C229F8009B53E2 /* LaunchScreen.storyboard */; };
 		837ACD3622C229F8009B53E2 /* SpartanPushupsNewVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD3522C229F8009B53E2 /* SpartanPushupsNewVersionTests.swift */; };
 		837ACD4122C229F8009B53E2 /* SpartanPushupsNewVersionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD4022C229F8009B53E2 /* SpartanPushupsNewVersionUITests.swift */; };
+		837ACD5422C22B46009B53E2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD5022C22B45009B53E2 /* Roboto-Regular.ttf */; };
+		837ACD5522C22B46009B53E2 /* Exo-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD5122C22B45009B53E2 /* Exo-SemiBoldItalic.ttf */; };
+		837ACD5622C22B46009B53E2 /* Exo-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD5222C22B45009B53E2 /* Exo-BoldItalic.ttf */; };
+		837ACD5722C22B46009B53E2 /* Exo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD5322C22B46009B53E2 /* Exo-Italic.ttf */; };
+		837ACD5E22C22B68009B53E2 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD5922C22B67009B53E2 /* bg.png */; };
+		837ACD5F22C22B68009B53E2 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD5A22C22B68009B53E2 /* speaker.png */; };
+		837ACD6022C22B68009B53E2 /* done24.png in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD5B22C22B68009B53E2 /* done24.png */; };
+		837ACD6122C22B68009B53E2 /* eye24.png in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD5C22C22B68009B53E2 /* eye24.png */; };
+		837ACD6222C22B68009B53E2 /* bg-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD5D22C22B68009B53E2 /* bg-circle.png */; };
+		837ACD6722C22B8D009B53E2 /* finish_beeb.wav in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD6522C22B8D009B53E2 /* finish_beeb.wav */; };
+		837ACD6822C22B8D009B53E2 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD6622C22B8D009B53E2 /* beep.wav */; };
+		837ACD6E22C22C4B009B53E2 /* Neon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD6A22C22C4B009B53E2 /* Neon.swift */; };
+		837ACD6F22C22C4B009B53E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD6B22C22C4B009B53E2 /* Extensions.swift */; };
+		837ACD7022C22C4B009B53E2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD6C22C22C4B009B53E2 /* Config.swift */; };
+		837ACD7122C22C4B009B53E2 /* DeviceProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD6D22C22C4B009B53E2 /* DeviceProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +51,6 @@
 		837ACD1D22C229F7009B53E2 /* SpartanPushupsNewVersion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartanPushupsNewVersion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837ACD2022C229F7009B53E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837ACD2222C229F7009B53E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		837ACD2522C229F7009B53E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		837ACD2722C229F8009B53E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		837ACD2A22C229F8009B53E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		837ACD2C22C229F8009B53E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +60,21 @@
 		837ACD3C22C229F8009B53E2 /* SpartanPushupsNewVersionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpartanPushupsNewVersionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		837ACD4022C229F8009B53E2 /* SpartanPushupsNewVersionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartanPushupsNewVersionUITests.swift; sourceTree = "<group>"; };
 		837ACD4222C229F8009B53E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		837ACD5022C22B45009B53E2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		837ACD5122C22B45009B53E2 /* Exo-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		837ACD5222C22B45009B53E2 /* Exo-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-BoldItalic.ttf"; sourceTree = "<group>"; };
+		837ACD5322C22B46009B53E2 /* Exo-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Italic.ttf"; sourceTree = "<group>"; };
+		837ACD5922C22B67009B53E2 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		837ACD5A22C22B68009B53E2 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
+		837ACD5B22C22B68009B53E2 /* done24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done24.png; sourceTree = "<group>"; };
+		837ACD5C22C22B68009B53E2 /* eye24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye24.png; sourceTree = "<group>"; };
+		837ACD5D22C22B68009B53E2 /* bg-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-circle.png"; sourceTree = "<group>"; };
+		837ACD6522C22B8D009B53E2 /* finish_beeb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finish_beeb.wav; sourceTree = "<group>"; };
+		837ACD6622C22B8D009B53E2 /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		837ACD6A22C22C4B009B53E2 /* Neon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neon.swift; sourceTree = "<group>"; };
+		837ACD6B22C22C4B009B53E2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		837ACD6C22C22C4B009B53E2 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		837ACD6D22C22C4B009B53E2 /* DeviceProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceProperties.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +125,10 @@
 		837ACD1F22C229F7009B53E2 /* SpartanPushupsNewVersion */ = {
 			isa = PBXGroup;
 			children = (
+				837ACD6922C22C24009B53E2 /* Application Configuration */,
+				837ACD4E22C22B22009B53E2 /* Assets */,
 				837ACD2022C229F7009B53E2 /* AppDelegate.swift */,
 				837ACD2222C229F7009B53E2 /* ViewController.swift */,
-				837ACD2422C229F7009B53E2 /* Main.storyboard */,
 				837ACD2722C229F8009B53E2 /* Assets.xcassets */,
 				837ACD2922C229F8009B53E2 /* LaunchScreen.storyboard */,
 				837ACD2C22C229F8009B53E2 /* Info.plist */,
@@ -123,6 +152,59 @@
 				837ACD4222C229F8009B53E2 /* Info.plist */,
 			);
 			path = SpartanPushupsNewVersionUITests;
+			sourceTree = "<group>";
+		};
+		837ACD4E22C22B22009B53E2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				837ACD6422C22B80009B53E2 /* Sounds */,
+				837ACD5822C22B59009B53E2 /* Images */,
+				837ACD4F22C22B2E009B53E2 /* Fonts */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		837ACD4F22C22B2E009B53E2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				837ACD5222C22B45009B53E2 /* Exo-BoldItalic.ttf */,
+				837ACD5322C22B46009B53E2 /* Exo-Italic.ttf */,
+				837ACD5122C22B45009B53E2 /* Exo-SemiBoldItalic.ttf */,
+				837ACD5022C22B45009B53E2 /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		837ACD5822C22B59009B53E2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				837ACD5D22C22B68009B53E2 /* bg-circle.png */,
+				837ACD5922C22B67009B53E2 /* bg.png */,
+				837ACD5B22C22B68009B53E2 /* done24.png */,
+				837ACD5C22C22B68009B53E2 /* eye24.png */,
+				837ACD5A22C22B68009B53E2 /* speaker.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		837ACD6422C22B80009B53E2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				837ACD6622C22B8D009B53E2 /* beep.wav */,
+				837ACD6522C22B8D009B53E2 /* finish_beeb.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		837ACD6922C22C24009B53E2 /* Application Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				837ACD6C22C22C4B009B53E2 /* Config.swift */,
+				837ACD6D22C22C4B009B53E2 /* DeviceProperties.swift */,
+				837ACD6B22C22C4B009B53E2 /* Extensions.swift */,
+				837ACD6A22C22C4B009B53E2 /* Neon.swift */,
+			);
+			path = "Application Configuration";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +311,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				837ACD5622C22B46009B53E2 /* Exo-BoldItalic.ttf in Resources */,
+				837ACD5F22C22B68009B53E2 /* speaker.png in Resources */,
+				837ACD6022C22B68009B53E2 /* done24.png in Resources */,
+				837ACD5722C22B46009B53E2 /* Exo-Italic.ttf in Resources */,
+				837ACD5522C22B46009B53E2 /* Exo-SemiBoldItalic.ttf in Resources */,
+				837ACD6722C22B8D009B53E2 /* finish_beeb.wav in Resources */,
+				837ACD5422C22B46009B53E2 /* Roboto-Regular.ttf in Resources */,
+				837ACD5E22C22B68009B53E2 /* bg.png in Resources */,
 				837ACD2B22C229F8009B53E2 /* LaunchScreen.storyboard in Resources */,
 				837ACD2822C229F8009B53E2 /* Assets.xcassets in Resources */,
-				837ACD2622C229F7009B53E2 /* Main.storyboard in Resources */,
+				837ACD6122C22B68009B53E2 /* eye24.png in Resources */,
+				837ACD6222C22B68009B53E2 /* bg-circle.png in Resources */,
+				837ACD6822C22B8D009B53E2 /* beep.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +349,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				837ACD2322C229F7009B53E2 /* ViewController.swift in Sources */,
+				837ACD6E22C22C4B009B53E2 /* Neon.swift in Sources */,
+				837ACD7122C22C4B009B53E2 /* DeviceProperties.swift in Sources */,
+				837ACD7022C22C4B009B53E2 /* Config.swift in Sources */,
 				837ACD2122C229F7009B53E2 /* AppDelegate.swift in Sources */,
+				837ACD6F22C22C4B009B53E2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +389,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		837ACD2422C229F7009B53E2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				837ACD2522C229F7009B53E2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		837ACD2922C229F8009B53E2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
