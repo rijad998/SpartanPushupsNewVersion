@@ -8,28 +8,54 @@
 
 import Foundation
 
-public class DataHandler {
+class DataHandler {
     
-    fileprivate var activeSeries: [Int] = []
-    public var getSeries: [Int] {
+    fileprivate static var serie: Seria!
+    
+    static var getSerie: Seria {
         get {
-            if activeSeries.isEmpty {
+            if serie == nil {
                 generateSeries()
             }
-            return activeSeries
+            return serie
         }
     }
     
-    public func generateSeries(){
-        self.cleanActiveSeries()
-        for _ in 1...limit {
+    
+    static func generateSeries(){
+        let serie = Seria()
+        for index in 1...limit {
             let randomNum = Int.random(in: 3 ... 6)
-            activeSeries.append(randomNum)
+            var rest: Int?
+            if index != 0 {
+                rest = 11
+            }
+            let exer = Exercise(pushUps: randomNum, rest: rest, current: nil, onIndex: index - 1)
+            //exer.pushUps = randomNum
+            serie.exercises.append(exer)
         }
     }
+}
+
+class Exercise {
     
-    public func cleanActiveSeries(){
-        activeSeries.removeAll()
+    var pushUps:Int
+    var rest: Int?
+    var current: Int
+    
+    init(pushUps: Int, rest: Int?, current: Int?, onIndex: Int) {
+        self.pushUps = pushUps
+        self.rest = rest
+        if let current = current {
+            self.current = current
+        } else {
+            self.current = pushUps
+        }
     }
-    
+}
+
+class Seria {
+    var id = 0
+    var onIndex = 0
+    var exercises: [Exercise] = []
 }
