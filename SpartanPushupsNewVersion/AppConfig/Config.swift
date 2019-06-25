@@ -22,14 +22,17 @@ public struct Font {
     static let exoItalic = "Exo-Italic"
 }
 
-public var limit = 5
+public var nodesLimit = 5
 
 public struct Tabs {
     static let numberOfLevels = 4
     static let numberOfPushupTypes = 2
 }
 
-public struct TabNames {
-    static let levelNames = ["Novice", "Beginner", "Intermediate", "Spartan"]
-    static let pushupNames = ["Pushups", "Spartan Pushups"]
+public struct levels {
+    static let names = ["Novice", "Beginner", "Intermediate", "Spartan"]
+}
+
+public struct pushups {
+    static let names = ["Pushups", "Spartan Pushups"]
 }

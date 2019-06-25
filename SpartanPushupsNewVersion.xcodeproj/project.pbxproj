@@ -29,6 +29,7 @@
 		837ACD7022C22C4B009B53E2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD6C22C22C4B009B53E2 /* Config.swift */; };
 		837ACD7122C22C4B009B53E2 /* DeviceProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD6D22C22C4B009B53E2 /* DeviceProperties.swift */; };
 		837ACD7322C243A8009B53E2 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD7222C243A8009B53E2 /* DataHandler.swift */; };
+		837ACD7622C26C8E009B53E2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD7522C26C8E009B53E2 /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		837ACD6C22C22C4B009B53E2 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		837ACD6D22C22C4B009B53E2 /* DeviceProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceProperties.swift; sourceTree = "<group>"; };
 		837ACD7222C243A8009B53E2 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		837ACD7522C26C8E009B53E2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		837ACD1F22C229F7009B53E2 /* SpartanPushupsNewVersion */ = {
 			isa = PBXGroup;
 			children = (
+				837ACD7422C26C69009B53E2 /* Enums */,
 				837ACD6922C22C24009B53E2 /* AppConfig */,
 				837ACD4E22C22B22009B53E2 /* Assets */,
 				837ACD2022C229F7009B53E2 /* AppDelegate.swift */,
@@ -208,6 +211,14 @@
 				837ACD6A22C22C4B009B53E2 /* Neon.swift */,
 			);
 			path = AppConfig;
+			sourceTree = "<group>";
+		};
+		837ACD7422C26C69009B53E2 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				837ACD7522C26C8E009B53E2 /* Enums.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +368,7 @@
 				837ACD7122C22C4B009B53E2 /* DeviceProperties.swift in Sources */,
 				837ACD7022C22C4B009B53E2 /* Config.swift in Sources */,
 				837ACD2122C229F7009B53E2 /* AppDelegate.swift in Sources */,
+				837ACD7622C26C8E009B53E2 /* Enums.swift in Sources */,
 				837ACD6F22C22C4B009B53E2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
