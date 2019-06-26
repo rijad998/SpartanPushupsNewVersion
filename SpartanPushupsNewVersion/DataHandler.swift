@@ -10,87 +10,125 @@ import Foundation
 
 class DataHandler {
     
-    fileprivate static var levels:[Level]!
-    static var activeIndex: Int?
+    fileprivate static var listLevels: [Level]!
+//    static var activeIndex: Int?
     
-    static func getActiveLevel() -> Level {
-        if levels == nil {
-            generateLevels()
+//    static func getActiveLevel() -> Level {
+//        if levels == nil {
+//            generateLevels()
+//        }
+//        if let index = activeIndex {
+//            return levels[index]
+//        } else {
+//            return
+//        }
+//    }
+    
+    
+    fileprivate static func generateLevels() {
+        for (index, name) in (levelNames.names).enumerated() {
+            let lev = Level(onIndex: index, name: name)
+            /// proziva funkciju koja mu vraca prvu seriju
+            lev.series.append(getSeries)
+            /// proziva algoritam koji kreira ostale serije
+            /// --- ALGORITAM ---
+            listLevels.append(lev)
         }
-        if let index = activeIndex {
-            return levels[index]
-        } else {
-            return
-        }
-        
     }
     
     
-    fileprivate static var getSerie: Seria {
+    fileprivate static var getSeries: Series {
         get {
-            let series = Seria()
-            for index in 1...nodesLimit {
+            /// Ovdje ide index nula jer ovo predstavlja prvu seriju u nizu
+            /// Ta serija je pocetna serija nad kojom radi algoritam koji
+            /// kasnije pravi ostale serije za taj level
+            let series = Series(onIndex: 0)
+            for index in 0 ... nodesLimit - 1 {
                 let randomNum = Int.random(in: 3 ... 6)
                 var rest: Int?
                 if index != 0 {
                     rest = 11
                 }
-                let exer = Exercise(pushUps: randomNum, rest: rest, current: nil, onIndex: index - 1)
-                series.exercises.append(exer)
+                let round = Round(reps: randomNum, rest: rest, current: nil, onIndex: index)
+                series.rounds.append(round)
             }
             return series
         }
     }
     
-    
-    fileprivate static func generateLevels() {
-        for (index, name) in (levelNames.names).enumerated() {
-            let lev = Level(name: name, seria: getSerie, index: index)
-            levels.append(lev)
+
+    static func getLevelByIndex(levelIndex: Int) -> Level? {
+        if !(listLevels.count > levelIndex)  {
+            return nil
         }
+        return listLevels[levelIndex]
+    }
+    
+    
+    static func getSeriesByIndex(levelIndex: Int, seriesIndex: Int) -> Series? {
+        if let level = getLevelByIndex(levelIndex: levelIndex) {
+            if !(level.series.count > seriesIndex) {
+                return nil
+            }
+            return level.series[seriesIndex]
+        }
+        return nil
+    }
+    
+    
+    static func getRoundByIndex(levelIndex: Int, seriesIndex: Int, roundIndex: Int) -> Round? {
+        if let series = getSeriesByIndex(levelIndex: levelIndex, seriesIndex: seriesIndex) {
+            if !(series.rounds.count > roundIndex) {
+                return nil
+            }
+            return series.rounds[roundIndex]
+        }
+        return nil
     }
 }
 
-
-class Exercise {
+class Level {
     
-    var pushUps: Int
+    var series: [Series] = []
+    var onIndex: Int
+    var name: String
+    var state: Select = .none
+    
+    init(onIndex: Int, name: String) {
+        self.onIndex = onIndex
+        self.name = name
+    }
+}
+
+class Series {
+    
+    var rounds: [Round] = []
+    var onIndex: Int
+    var state: Select = .none
+    
+    init(onIndex: Int) {
+        self.onIndex = onIndex
+    }
+}
+
+class Round {
+    
+    var reps: Int
     var rest: Int?
-    var current: Int
+    var current: Int?
     var onIndex: Int
     var state: ActiveNode = .inactive
     
-    init(pushUps: Int, rest: Int?, current: Int?, onIndex: Int) {
-        self.pushUps = pushUps
+    init(reps: Int, rest: Int?, current: Int?, onIndex: Int) {
+        self.reps = reps
         self.rest = rest
         if let current = current {
             self.current = current
         } else {
-            self.current = pushUps
+            self.current = reps
         }
         self.onIndex = onIndex
     }
 }
 
 
-class Seria {
-    
-    var id = 0
-    // var onIndex = 0
-    var exercises: [Exercise] = []
-}
-
-
-class Level {
-    
-    var name: String
-    var seria: [Seria] = []
-    var onIndex: Int
-    var state: Select = .none
-    
-    init (name: String, seria: [Seria], index: Int){
-        self.name = name
-        self.seria = seria
-        self.onIndex = index
-    }
-}
