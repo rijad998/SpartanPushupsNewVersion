@@ -12,3 +12,9 @@ enum Select: String {
     case selected
     case none
 }
+
+enum ActiveNode: String {
+    case activeDone
+    case activeNext
+    case inactive
+}

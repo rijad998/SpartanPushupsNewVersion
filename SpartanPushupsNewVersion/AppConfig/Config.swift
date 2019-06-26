@@ -29,7 +29,7 @@ public struct Tabs {
     static let numberOfPushupTypes = 2
 }
 
-public struct levels {
+public struct levelNames {
     static let names = ["Novice", "Beginner", "Intermediate", "Spartan"]
 }
 

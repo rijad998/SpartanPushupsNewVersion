@@ -10,33 +10,43 @@ import Foundation
 
 class DataHandler {
     
-    fileprivate static var serie: Seria!
-    fileprivate static var levels: [Level] = []
+    fileprivate static var levels:[Level]!
+    static var activeIndex: Int?
     
-    static func getLevel(index: Int) -> Level {
-        return levels[index]
+    static func getActiveLevel() -> Level {
+        if levels == nil {
+            generateLevels()
+        }
+        if let index = activeIndex {
+            return levels[index]
+        } else {
+            return
+        }
+        
     }
     
-    static var getSerie: Seria {
+    
+    fileprivate static var getSerie: Seria {
         get {
-            if serie == nil {
-                generateSeries()
+            let series = Seria()
+            for index in 1...nodesLimit {
+                let randomNum = Int.random(in: 3 ... 6)
+                var rest: Int?
+                if index != 0 {
+                    rest = 11
+                }
+                let exer = Exercise(pushUps: randomNum, rest: rest, current: nil, onIndex: index - 1)
+                series.exercises.append(exer)
             }
-            return serie
+            return series
         }
     }
     
     
-    static func generateSeries(){
-        let serie = Seria()
-        for index in 1...nodesLimit {
-            let randomNum = Int.random(in: 3 ... 6)
-            var rest: Int?
-            if index != 0 {
-                rest = 11
-            }
-            let exer = Exercise(pushUps: randomNum, rest: rest, current: nil, onIndex: index - 1)
-            serie.exercises.append(exer)
+    fileprivate static func generateLevels() {
+        for (index, name) in (levelNames.names).enumerated() {
+            let lev = Level(name: name, seria: getSerie, index: index)
+            levels.append(lev)
         }
     }
 }
@@ -44,9 +54,11 @@ class DataHandler {
 
 class Exercise {
     
-    var pushUps:Int
+    var pushUps: Int
     var rest: Int?
     var current: Int
+    var onIndex: Int
+    var state: ActiveNode = .inactive
     
     init(pushUps: Int, rest: Int?, current: Int?, onIndex: Int) {
         self.pushUps = pushUps
@@ -56,6 +68,7 @@ class Exercise {
         } else {
             self.current = pushUps
         }
+        self.onIndex = onIndex
     }
 }
 
@@ -71,10 +84,11 @@ class Seria {
 class Level {
     
     var name: String
-    var seria: Seria
+    var seria: [Seria] = []
     var onIndex: Int
+    var state: Select = .none
     
-    init (name: String, seria: Seria, index: Int){
+    init (name: String, seria: [Seria], index: Int){
         self.name = name
         self.seria = seria
         self.onIndex = index

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8346D70322C3954300BC6A89 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8346D70222C3954300BC6A89 /* MainViewModel.swift */; };
 		837ACD2122C229F7009B53E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD2022C229F7009B53E2 /* AppDelegate.swift */; };
 		837ACD2322C229F7009B53E2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD2222C229F7009B53E2 /* MainViewController.swift */; };
 		837ACD2822C229F8009B53E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD2722C229F8009B53E2 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8346D70222C3954300BC6A89 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		837ACD1D22C229F7009B53E2 /* SpartanPushupsNewVersion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartanPushupsNewVersion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837ACD2022C229F7009B53E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837ACD2222C229F7009B53E2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				837ACD4E22C22B22009B53E2 /* Assets */,
 				837ACD2022C229F7009B53E2 /* AppDelegate.swift */,
 				837ACD2222C229F7009B53E2 /* MainViewController.swift */,
+				8346D70222C3954300BC6A89 /* MainViewModel.swift */,
 				837ACD7222C243A8009B53E2 /* DataHandler.swift */,
 				837ACD2722C229F8009B53E2 /* Assets.xcassets */,
 				837ACD2922C229F8009B53E2 /* LaunchScreen.storyboard */,
@@ -370,6 +373,7 @@
 				837ACD2122C229F7009B53E2 /* AppDelegate.swift in Sources */,
 				837ACD7622C26C8E009B53E2 /* Enums.swift in Sources */,
 				837ACD6F22C22C4B009B53E2 /* Extensions.swift in Sources */,
+				8346D70322C3954300BC6A89 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
