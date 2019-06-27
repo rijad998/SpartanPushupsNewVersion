@@ -15,12 +15,12 @@ protocol MainViewModelDelegate {
 
 class MainViewModel {
     
-    fileprivate var delegate: MainViewModelDelegate?
+    var delegate: MainViewModelDelegate?
     
     init() {}
     
     func getLevel() {
-        if let level = getActiveLevel() {
+        if let level = DataHandler.getActiveLevel() {
             delegate?.returnLevel(level: level)
         }
     }

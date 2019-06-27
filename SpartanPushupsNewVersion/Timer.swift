@@ -9,15 +9,39 @@
 import Foundation
 import UIKit
 
-class Timer {
+protocol RestTimerDelegate {
+    func returnTime(currentTime: Int)
+}
+
+class RestTimer {
     
     fileprivate var restTime: Int
+    fileprivate var timer = Timer()
+    var delegate: RestTimerDelegate?
+    fileprivate var isRunning = false
     
     init(restTime: Int) {
         self.restTime = restTime
     }
     
-    @objc timerAction() {
-        
+    func fireTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        timer.fire()
+        isRunning = true
     }
+    
+    
+    @objc func timerAction() {
+        delegate?.returnTime(currentTime: restTime)
+        if restTime == 0 {
+            timerInvalidate()
+        }
+        restTime -= 1
+    }
+    
+    func timerInvalidate() {
+        isRunning = false
+        timer.invalidate()
+    }
+    
 }

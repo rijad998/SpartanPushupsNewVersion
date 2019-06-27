@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    fileprivate let mainViewModel = MainViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.layer.contents = UIImage.loadImageData("bg.png")?.cgImage
@@ -24,5 +26,17 @@ class MainViewController: UIViewController {
         super.viewDidLayoutSubviews()
         // layout()
     }
+    
+    func setup() {
+        mainViewModel.delegate = self
+    }
+}
+
+extension MainViewController: MainViewModelDelegate {
+    func returnLevel(level: Level) {
+        <#code#>
+    }
+    
+    
 }
 
