@@ -16,8 +16,13 @@ protocol MainViewModelDelegate {
 class MainViewModel {
     
     var delegate: MainViewModelDelegate?
+    var currentProgress: Int
     
     init() {}
+    
+    func getProgress() {
+        currentProgress = DataHandler.getProgress()
+    }
     
     func getLevel() {
         if let level = DataHandler.getActiveLevel() {

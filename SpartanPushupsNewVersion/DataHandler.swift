@@ -25,6 +25,13 @@ class DataHandler {
 //        }
 //    }
     
+    static func getProgress() -> Int {
+        let activeLevel = listLevels[activeLevelIndex]
+        let finishedSeries = activeLevel.series.filter{$0.state == .finished}.count
+        return Int(( 100 / activeLevel.series.count ) * finishedSeries)
+    }
+    
+    
     static func getActiveLevel() -> Level? {
         
         if let level = getLevelByIndex(levelIndex: activeLevelIndex) {

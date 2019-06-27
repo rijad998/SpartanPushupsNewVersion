@@ -36,7 +36,5 @@ extension MainViewController: MainViewModelDelegate {
     func returnLevel(level: Level) {
         <#code#>
     }
-    
-    
 }
 
