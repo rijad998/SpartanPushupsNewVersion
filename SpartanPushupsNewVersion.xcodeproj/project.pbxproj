@@ -31,6 +31,7 @@
 		837ACD7122C22C4B009B53E2 /* DeviceProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD6D22C22C4B009B53E2 /* DeviceProperties.swift */; };
 		837ACD7322C243A8009B53E2 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD7222C243A8009B53E2 /* DataHandler.swift */; };
 		837ACD7622C26C8E009B53E2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD7522C26C8E009B53E2 /* Enums.swift */; };
+		837D191F22C4D80400B55820 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837D191E22C4D80400B55820 /* Timer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		837ACD6D22C22C4B009B53E2 /* DeviceProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceProperties.swift; sourceTree = "<group>"; };
 		837ACD7222C243A8009B53E2 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		837ACD7522C26C8E009B53E2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		837D191E22C4D80400B55820 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				837ACD2222C229F7009B53E2 /* MainViewController.swift */,
 				8346D70222C3954300BC6A89 /* MainViewModel.swift */,
 				837ACD7222C243A8009B53E2 /* DataHandler.swift */,
+				837D191E22C4D80400B55820 /* Timer.swift */,
 				837ACD2722C229F8009B53E2 /* Assets.xcassets */,
 				837ACD2922C229F8009B53E2 /* LaunchScreen.storyboard */,
 				837ACD2C22C229F8009B53E2 /* Info.plist */,
@@ -368,6 +371,7 @@
 				837ACD2322C229F7009B53E2 /* MainViewController.swift in Sources */,
 				837ACD7322C243A8009B53E2 /* DataHandler.swift in Sources */,
 				837ACD6E22C22C4B009B53E2 /* Neon.swift in Sources */,
+				837D191F22C4D80400B55820 /* Timer.swift in Sources */,
 				837ACD7122C22C4B009B53E2 /* DeviceProperties.swift in Sources */,
 				837ACD7022C22C4B009B53E2 /* Config.swift in Sources */,
 				837ACD2122C229F7009B53E2 /* AppDelegate.swift in Sources */,

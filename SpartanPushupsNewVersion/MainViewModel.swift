@@ -10,12 +10,18 @@ import Foundation
 import UIKit
 
 protocol MainViewModelDelegate {
-    func returnLevel()
+    func returnLevel(level: Level)
 }
 
 class MainViewModel {
     
-    var level: Level? = getActiveLevel()
     fileprivate var delegate: MainViewModelDelegate?
-
+    
+    init() {}
+    
+    func getLevel() {
+        if let level = getActiveLevel() {
+            delegate?.returnLevel(level: level)
+        }
+    }
 }

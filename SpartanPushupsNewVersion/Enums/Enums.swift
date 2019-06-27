@@ -13,8 +13,15 @@ enum Select: String {
     case none
 }
 
-enum ActiveNode: String {
+enum ActiveRound: String {
     case activeDone
     case activeNext
     case inactive
 }
+
+enum ActiveSeries: String {
+    case finished
+    case inPogress
+    case next
+}
+

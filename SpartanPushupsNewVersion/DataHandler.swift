@@ -11,8 +11,8 @@ import Foundation
 class DataHandler {
     
     fileprivate static var listLevels: [Level]!
-//    static var activeIndex: Int?
-    
+    static var activeLevelIndex: Int = 0
+    static var limitPerLevel = 10
 //    static func getActiveLevel() -> Level {
 //        if levels == nil {
 //            generateLevels()
@@ -23,6 +23,34 @@ class DataHandler {
 //            return
 //        }
 //    }
+    
+    static func getActiveLevel(levelIndex: Int) -> Level? {
+        
+        if let level = getLevelByIndex(levelIndex: activeLevelIndex) {
+            return level
+        }
+        return nil
+    }
+    
+    
+    fileprivate static func generateSeries(limitPerLevel: Int, startingSeries: Series) {
+        
+        for i in 1 ... limitPerLevel - 1 {
+            
+            let newSeries = Series(onIndex: i)
+        
+            for j in 0 ... roundsLimit - 1 {
+                var reps = startingSeries.rounds[j].reps
+                reps += i
+                var rest: Int?
+                if j != 0 {
+                    rest = 11
+                }
+                let round = Round(reps: reps, rest: rest, current: nil, onIndex: j)
+                newSeries.rounds.append(round)
+            }
+        }
+    }
     
     
     fileprivate static func generateLevels() {
@@ -43,7 +71,7 @@ class DataHandler {
             /// Ta serija je pocetna serija nad kojom radi algoritam koji
             /// kasnije pravi ostale serije za taj level
             let series = Series(onIndex: 0)
-            for index in 0 ... nodesLimit - 1 {
+            for index in 0 ... roundsLimit - 1 {
                 let randomNum = Int.random(in: 3 ... 6)
                 var rest: Int?
                 if index != 0 {
@@ -58,19 +86,19 @@ class DataHandler {
     
 
     static func getLevelByIndex(levelIndex: Int) -> Level? {
-        if !(listLevels.count > levelIndex)  {
-            return nil
+        //return levelIndex < listLevels.count : listLevels[levelIndex] ?? nil
+        if listLevels.count > levelIndex  {
+            return listLevels[levelIndex]
         }
-        return listLevels[levelIndex]
+        return nil
     }
     
     
     static func getSeriesByIndex(levelIndex: Int, seriesIndex: Int) -> Series? {
         if let level = getLevelByIndex(levelIndex: levelIndex) {
-            if !(level.series.count > seriesIndex) {
-                return nil
+            if level.series.count > seriesIndex {
+                return level.series[seriesIndex]
             }
-            return level.series[seriesIndex]
         }
         return nil
     }
@@ -78,14 +106,14 @@ class DataHandler {
     
     static func getRoundByIndex(levelIndex: Int, seriesIndex: Int, roundIndex: Int) -> Round? {
         if let series = getSeriesByIndex(levelIndex: levelIndex, seriesIndex: seriesIndex) {
-            if !(series.rounds.count > roundIndex) {
-                return nil
+            if series.rounds.count > roundIndex {
+                return series.rounds[roundIndex]
             }
-            return series.rounds[roundIndex]
         }
         return nil
     }
 }
+
 
 class Level {
     
@@ -100,16 +128,18 @@ class Level {
     }
 }
 
+
 class Series {
     
     var rounds: [Round] = []
     var onIndex: Int
-    var state: Select = .none
+    var state: ActiveSeries = .next
     
     init(onIndex: Int) {
         self.onIndex = onIndex
     }
 }
+
 
 class Round {
     
@@ -117,18 +147,12 @@ class Round {
     var rest: Int?
     var current: Int?
     var onIndex: Int
-    var state: ActiveNode = .inactive
+    var state: ActiveRound = .inactive
     
     init(reps: Int, rest: Int?, current: Int?, onIndex: Int) {
         self.reps = reps
         self.rest = rest
-        if let current = current {
-            self.current = current
-        } else {
-            self.current = reps
-        }
+        self.current = current ?? reps
         self.onIndex = onIndex
     }
 }
-
-
