@@ -10,8 +10,9 @@ import Foundation
 
 class DataHandler {
     
-    fileprivate static var listLevels: [Level]!
+    static var listLevels: [Level]!
     static var activeLevelIndex: Int = 0
+    static var activeSeriesIndex: Int = 0
     static var limitPerLevel = 10
     
 //    static func getActiveLevel() -> Level {

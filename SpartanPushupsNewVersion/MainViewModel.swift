@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol MainViewModelDelegate {
-    func returnLevel(level: Level)
+    func returnLevel(series: Series)
 }
 
 class MainViewModel {
@@ -24,9 +24,9 @@ class MainViewModel {
         currentProgress = DataHandler.getProgress()
     }
     
-    func getLevel() {
-        if let level = DataHandler.getActiveLevel() {
-            delegate?.returnLevel(level: level)
-        }
+    func getActiveSeries() {
+        
+        let activeSeries = DataHandler.listLevels[DataHandler.activeLevelIndex].series[DataHandler.activeSeriesIndex]
+        delegate?.returnLevel(series: activeSeries)
     }
 }
