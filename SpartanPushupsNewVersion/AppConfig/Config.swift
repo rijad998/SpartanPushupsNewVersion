@@ -10,12 +10,14 @@ import Foundation
 import UIKit
 
 public var bgImg: UIImage {
+    
     get {
         return UIImage(named: "bg.png")!
     }
 }
 
 public struct Font {
+    
     static let roboto = "Roboto-Regular"
     static let exoBoldItalic = "Exo-BoldItalic"
     static let exoSemiBoldItalic = "Exo-SemiBoldItalic"
@@ -25,15 +27,37 @@ public struct Font {
 public var roundsLimit = 5
 
 public struct Tabs {
+    
     static let numberOfLevels = 4
     static let numberOfPushupTypes = 2
 }
 
 public struct levelNames {
+    
     static let names = ["Novice", "Beginner", "Intermediate", "Spartan"]
 }
 
 public struct pushups {
+    
     static let names = ["Pushups", "Spartan Pushups"]
 }
 
+public struct isAppActiveConfig {
+    
+    static var isAppActive: Bool {
+        return UserDefaults.standard.bool(forKey: "is_app_active")
+    }
+    
+    static func activateApp() {
+        setupAppActivation(isActive: true)
+    }
+    
+    static func deactivateApp() {
+        setupAppActivation(isActive: false)
+    }
+    
+    fileprivate static func setupAppActivation(isActive: Bool) {
+        UserDefaults.standard.set(isActive, forKey: "is_app_active")
+        UserDefaults.standard.synchronize()
+    }
+}

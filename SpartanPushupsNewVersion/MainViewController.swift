@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
 
     fileprivate let mainViewModel = MainViewModel()
-    fileprivate let roundSeriesView: RoundSeriesView!
+    fileprivate var roundSeriesView: RoundSeriesView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +36,7 @@ class MainViewController: UIViewController {
 extension MainViewController: MainViewModelDelegate {
     
     func returnLevel(series: Series) {
-        <#code#>
+        roundSeriesView = RoundSeriesView(series: series)
     }
-    
 }
 

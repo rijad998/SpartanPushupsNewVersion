@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8346D70322C3954300BC6A89 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8346D70222C3954300BC6A89 /* MainViewModel.swift */; };
 		836D6D3622C646D000B54F96 /* RoundSeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D6D3522C646D000B54F96 /* RoundSeriesView.swift */; };
-		836D6D3822C6480900B54F96 /* RoundSeriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D6D3722C6480900B54F96 /* RoundSeriesViewModel.swift */; };
 		837ACD2122C229F7009B53E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD2022C229F7009B53E2 /* AppDelegate.swift */; };
 		837ACD2322C229F7009B53E2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD2222C229F7009B53E2 /* MainViewController.swift */; };
 		837ACD2822C229F8009B53E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837ACD2722C229F8009B53E2 /* Assets.xcassets */; };
@@ -56,7 +55,6 @@
 /* Begin PBXFileReference section */
 		8346D70222C3954300BC6A89 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		836D6D3522C646D000B54F96 /* RoundSeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundSeriesView.swift; sourceTree = "<group>"; };
-		836D6D3722C6480900B54F96 /* RoundSeriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundSeriesViewModel.swift; sourceTree = "<group>"; };
 		837ACD1D22C229F7009B53E2 /* SpartanPushupsNewVersion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartanPushupsNewVersion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837ACD2022C229F7009B53E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837ACD2222C229F7009B53E2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				837ACD7222C243A8009B53E2 /* DataHandler.swift */,
 				837D191E22C4D80400B55820 /* Timer.swift */,
 				836D6D3522C646D000B54F96 /* RoundSeriesView.swift */,
-				836D6D3722C6480900B54F96 /* RoundSeriesViewModel.swift */,
 				837ACD2722C229F8009B53E2 /* Assets.xcassets */,
 				837ACD2922C229F8009B53E2 /* LaunchScreen.storyboard */,
 				837ACD2C22C229F8009B53E2 /* Info.plist */,
@@ -374,7 +371,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				836D6D3822C6480900B54F96 /* RoundSeriesViewModel.swift in Sources */,
 				837ACD2322C229F7009B53E2 /* MainViewController.swift in Sources */,
 				837ACD7322C243A8009B53E2 /* DataHandler.swift in Sources */,
 				837ACD6E22C22C4B009B53E2 /* Neon.swift in Sources */,

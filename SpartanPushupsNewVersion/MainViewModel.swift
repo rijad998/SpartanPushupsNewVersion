@@ -16,17 +16,15 @@ protocol MainViewModelDelegate {
 class MainViewModel {
     
     var delegate: MainViewModelDelegate?
-    var currentProgress: Int
+    var currentProgress: Int!
     
     init() {}
     
     func getProgress() {
-        currentProgress = DataHandler.getProgress()
+        self.currentProgress = DataHandler.getProgress()
     }
     
-    func getActiveSeries() {
-        
-        let activeSeries = DataHandler.listLevels[DataHandler.activeLevelIndex].series[DataHandler.activeSeriesIndex]
-        delegate?.returnLevel(series: activeSeries)
+    func getActiveLevel() {
+        delegate?.returnLevel(series: DataHandler.activeSeries)
     }
 }

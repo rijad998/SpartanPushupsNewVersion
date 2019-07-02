@@ -11,8 +11,9 @@ import Foundation
 class DataHandler {
     
     static var listLevels: [Level]!
-    static var activeLevelIndex: Int = 0
-    static var activeSeriesIndex: Int = 0
+    fileprivate static var activeLevelIndex: Int = 0
+    fileprivate static var activeSeriesIndex: Int = 0
+    fileprivate static var activeRoundIndex: Int = 0
     static var limitPerLevel = 10
     
 //    static func getActiveLevel() -> Level {
@@ -25,6 +26,21 @@ class DataHandler {
 //            return
 //        }
 //    }
+    
+    static var activeSeries: Series {
+        get {
+            return isAppActiveConfig.isAppActive ? listLevels[activeLevelIndex].series[activeSeriesIndex] : getEmptySeries()
+        }
+    }
+    
+    fileprivate static func getEmptySeries() -> Series {
+        let series = Series(onIndex: 0)
+        for (index, _) in (series.rounds).enumerated() {
+            let roundZ = Round(reps: 0, rest: 0, current: nil, onIndex: index)
+            series.rounds.append(roundZ)
+        }
+        return series
+    }
     
     static func getProgress() -> Int {
         let activeLevel = listLevels[activeLevelIndex]
