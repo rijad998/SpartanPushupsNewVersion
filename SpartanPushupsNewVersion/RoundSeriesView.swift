@@ -16,6 +16,7 @@ class RoundSeriesView: UIView {
     
     init() {
         super.init(frame: CGRect.zero)
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,15 +30,25 @@ class RoundSeriesView: UIView {
     
     func setup() {
         
+        addSubview(roundSeriesSubView)
+        roundSeriesSubView.frame.size.width = 0
         for (index, item) in DataHandler.activeSeries.rounds.enumerated() {
-            var roundItem = SeriaItem(round: item)
+            let w: CGFloat = index >= (DataHandler.activeSeries.rounds.count - 1) ? 40 : 60
+            let roundItem = SeriaItem(round: item, frame: CGRect(x: 0, y: 0, width: w, height: 40))
             roundSeriesList.append(roundItem)
-            addSubview(roundItem)
+            roundSeriesSubView.addSubview(roundItem)
+            roundSeriesSubView.frame.size.width += w
         }
+        roundSeriesSubView.frame.size.height = 40
     }
     
     func layout() {
-        
+        roundSeriesSubView.onCenter(roundSeriesSubView.width, roundSeriesSubView.height)
+        var xOffset: CGFloat = 0
+        for item in roundSeriesList {
+            item.onSide(.left, xOffset, width: item.width, height: item.height)
+            xOffset += item.width
+        }
     }
     
 }
@@ -46,12 +57,13 @@ class SeriaItem: UIView {
     
     fileprivate var roundCircle = UIView()
     fileprivate var horizontalLine = UIView()
-    fileprivate var pushupLabel = UILabel()
+    fileprivate var pushUpLabel = UILabel()
     fileprivate var model: Round!
     
-    init(round: Round){
+    init(round: Round, frame: CGRect){
         self.model = round
-        super.init(frame: CGRect.zero)
+        super.init(frame: frame)
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -64,15 +76,28 @@ class SeriaItem: UIView {
     }
     
     func layout() {
-        <#code#>
+        roundCircle.onSide(.left, 0, width: 40, height: 40)
+        if !horizontalLine.isHidden {
+            horizontalLine.onSide(.right, 0, width: 20, height: 3)
+        }
+        pushUpLabel.fillSuperView()
     }
     
     func setup() {
-        
+        addSubview(horizontalLine)
+        horizontalLine.isHidden = !(frame.width > 40)
+        addSubview(roundCircle)
+        roundCircle.layer.cornerRadius = 20
+        roundCircle.layer.borderWidth = 2
+        roundCircle.addSubview(pushUpLabel)
+        pushUpLabel.font = UIFont(name: Font.exoBoldItalic, size: 18)
+        pushUpLabel.textAlignment = .center
+        pushUpLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        reload()
     }
     
     func reload() {
-        pushupLabel.text = "\(model.reps)"
+        pushUpLabel.text = "\(0)" == "\(model.reps)" ? "\(model.reps)" : ""
         setRoundsByState()
     }
     
@@ -102,7 +127,7 @@ class SeriaItem: UIView {
     
     /// Function that defines and set shadow under nodes
     func setShadow() {
-        roundCircle.layer.shadowPath = UIBezierPath(roundedRect: .init(x: 0, y: 7, width: 38, height: 38), cornerRadius: 18).cgPath
+        roundCircle.layer.shadowPath = UIBezierPath(roundedRect: .init(x: 0, y: 7, width: roundCircleSize.diameter, height: roundCircleSize.diameter), cornerRadius: roundCircleSize.radius).cgPath
         roundCircle.layer.shadowColor = #colorLiteral(red: 0.8352941176, green: 0, blue: 0, alpha: 1)
         roundCircle.layer.shadowOpacity = 1
         roundCircle.layer.shouldRasterize = true

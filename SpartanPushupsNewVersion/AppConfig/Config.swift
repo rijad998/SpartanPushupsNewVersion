@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+public var roundsLimit = 5
+
+public struct roundCircleSize {
+    
+    static var diameter: CGFloat = 40
+    static var radius: CGFloat = (diameter/2)
+}
+
 public var bgImg: UIImage {
     
     get {
@@ -23,8 +31,6 @@ public struct Font {
     static let exoSemiBoldItalic = "Exo-SemiBoldItalic"
     static let exoItalic = "Exo-Italic"
 }
-
-public var roundsLimit = 5
 
 public struct Tabs {
     

@@ -11,11 +11,12 @@ import UIKit
 class MainViewController: UIViewController {
 
     fileprivate let mainViewModel = MainViewModel()
-    fileprivate var roundSeriesView: RoundSeriesView!
+    fileprivate var roundSeriesView: RoundSeriesView = RoundSeriesView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.layer.contents = UIImage.loadImageData("bg.png")?.cgImage
+        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,17 +27,19 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // layout()
+        roundSeriesView.onSide(.top, 200, width: view.bounds.width, height: 64)
     }
     
     func setup() {
         mainViewModel.delegate = self
+        view.addSubview(roundSeriesView)
     }
 }
 
 extension MainViewController: MainViewModelDelegate {
     
     func returnLevel(series: Series) {
-        roundSeriesView = RoundSeriesView(series: series)
+        //roundSeriesView = RoundSeriesView(series: series)
     }
 }
 

@@ -29,13 +29,15 @@ class DataHandler {
     
     static var activeSeries: Series {
         get {
-            return isAppActiveConfig.isAppActive ? listLevels[activeLevelIndex].series[activeSeriesIndex] : getEmptySeries()
+           // return isAppActiveConfig.isAppActive ? listLevels[activeLevelIndex].series[activeSeriesIndex] : getEmptySeries()
+            return getEmptySeries()
         }
     }
     
     fileprivate static func getEmptySeries() -> Series {
         let series = Series(onIndex: 0)
-        for (index, _) in (series.rounds).enumerated() {
+        //for (index, _) in (series.rounds).enumerated() {
+        for index in 0...4 {
             let roundZ = Round(reps: 0, rest: 0, current: nil, onIndex: index)
             series.rounds.append(roundZ)
         }
