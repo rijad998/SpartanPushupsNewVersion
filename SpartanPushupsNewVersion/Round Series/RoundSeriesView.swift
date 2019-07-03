@@ -97,7 +97,9 @@ class SeriaItem: UIView {
     }
     
     func reload() {
-        pushUpLabel.text = "\(0)" == "\(model.reps)" ? "\(model.reps)" : ""
+        pushUpLabel.text = "0" == "\(model.reps)" ? "" : "\(model.reps)"
+        //pushUpLabel.text = model.reps == 0 ? "" : "\(model.reps)"
+        
         setRoundsByState()
     }
     

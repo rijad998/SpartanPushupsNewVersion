@@ -16,21 +16,21 @@ class DataHandler {
     fileprivate static var activeRoundIndex: Int = 0
     static var limitPerLevel = 10
     
-//    static func getActiveLevel() -> Level {
-//        if levels == nil {
-//            generateLevels()
-//        }
-//        if let index = activeIndex {
-//            return levels[index]
-//        } else {
-//            return
-//        }
-//    }
-    
-    static var activeSeries: Series {
-        get {
-           // return isAppActiveConfig.isAppActive ? listLevels[activeLevelIndex].series[activeSeriesIndex] : getEmptySeries()
-            return getEmptySeries()
+    static func markNextRoundAnActive() {
+        if activeRoundIndex >= roundsLimit - 1 {
+            activeRoundIndex = 0
+            if activeSeriesIndex >= limitPerLevel - 1 {
+                activeSeriesIndex = 0
+                if activeLevelIndex >= listLevels.count - 1 {
+                    // WORKOUT OVER
+                } else {
+                    activeLevelIndex += 1
+                }
+            } else {
+                activeSeriesIndex += 1
+            }
+        } else {
+            activeRoundIndex += 1
         }
     }
     
