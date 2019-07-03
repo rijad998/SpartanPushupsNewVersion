@@ -16,12 +16,14 @@ protocol RestTimerDelegate {
 class RestTimer {
     
     fileprivate var restTime: Int
+    fileprivate var restartTime: Int
     fileprivate var timer = Timer()
     var delegate: RestTimerDelegate?
     fileprivate var isRunning = false
     
     init(restTime: Int) {
         self.restTime = restTime
+        self.restartTime = restTime
     }
     
     func fireTimer() {
@@ -42,6 +44,11 @@ class RestTimer {
     func timerInvalidate() {
         isRunning = false
         timer.invalidate()
+    }
+    
+    func timerRestart() {
+        restTime = restartTime
+        fireTimer()
     }
     
 }

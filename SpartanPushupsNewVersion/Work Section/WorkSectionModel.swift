@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+protocol WorkSectionModelDelegate {
+    func getModel(model: Round)
+}
+
+class WorkSectionModel {
+    
+    var delegate: WorkSectionModelDelegate!
+    
+    init() {}
+    
+    func getNextRound() {
+        delegate?.getModel(model: DataHandler.activeRounds)
+    }
+}

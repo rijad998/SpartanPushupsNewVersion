@@ -7,3 +7,45 @@
 //
 
 import Foundation
+import UIKit
+
+class WorkSectionView: UIView {
+    
+    fileprivate let bgImgView = UIImageView(image: UIImage(named: "bg-circle.png"))
+    fileprivate let repsTimeLbl = UILabel()
+    fileprivate var noseTap = UITapGestureRecognizer()
+    
+    init(workSectionCircle: CGFloat) {
+        
+        super.init(frame: CGRect(x: 0, y: 0, width: workSectionCircleDiameter, height: workSectionCircleDiameter))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        
+        super.layoutSubviews()
+        layout()
+    }
+    
+    func layout() {
+        
+        self.layer.cornerRadius = (workSectionCircleDiameter / 2)
+        bgImgView.fillSuperView()
+        repsTimeLbl.fillSuperView()
+    }
+    
+    func setup() {
+        
+        addSubview(bgImgView)
+        bgImgView.addSubview(repsTimeLbl)
+        repsTimeLbl.font = UIFont(name: Font.exoBoldItalic, size: 60)
+        repsTimeLbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        repsTimeLbl.textAlignment = .center
+        repsTimeLbl.numberOfLines = 0
+        
+    }
+}

@@ -34,6 +34,12 @@ class DataHandler {
         }
     }
     
+    static var activeRounds: Round {
+        get {
+            return activeSeries.rounds[activeRoundIndex]
+        }
+    }
+    
     static var activeSeries: Series {
         get {
             // return isAppActiveConfig.isAppActive ? listLevels[activeLevelIndex].series[activeSeriesIndex] : getEmptySeries()
