@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
 
     fileprivate let mainViewModel = MainViewModel()
     fileprivate var roundSeriesView: RoundSeriesView = RoundSeriesView()
+    fileprivate var workSectionCircle: WorkSectionView = WorkSectionView(circleDiameter: workSectionDiameter)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,14 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // layout()
-        roundSeriesView.onSide(.top, 200, width: view.bounds.width, height: 64)
+        roundSeriesView.onSide(.top, 150, width: view.bounds.width, height: 64)
+        workSectionCircle.onSide(.top, 250, width: workSectionCircle.width, height: workSectionCircle.height)
     }
     
     func setup() {
         mainViewModel.delegate = self
         view.addSubview(roundSeriesView)
+        view.addSubview(workSectionCircle)
     }
 }
 

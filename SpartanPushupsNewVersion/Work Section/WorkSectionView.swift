@@ -15,9 +15,10 @@ class WorkSectionView: UIView {
     fileprivate let repsTimeLbl = UILabel()
     fileprivate var noseTap = UITapGestureRecognizer()
     
-    init(workSectionCircle: CGFloat) {
+    init(circleDiameter: CGFloat) {
         
-        super.init(frame: CGRect(x: 0, y: 0, width: workSectionCircleDiameter, height: workSectionCircleDiameter))
+        super.init(frame: CGRect(x: 0, y: 0, width: circleDiameter, height: circleDiameter))
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,7 +34,7 @@ class WorkSectionView: UIView {
     
     func layout() {
         
-        self.layer.cornerRadius = (workSectionCircleDiameter / 2)
+        self.layer.cornerRadius = (self.width / 2)
         bgImgView.fillSuperView()
         repsTimeLbl.fillSuperView()
     }
@@ -46,6 +47,7 @@ class WorkSectionView: UIView {
         repsTimeLbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         repsTimeLbl.textAlignment = .center
         repsTimeLbl.numberOfLines = 0
+        repsTimeLbl.text = "Test text"
         
     }
 }

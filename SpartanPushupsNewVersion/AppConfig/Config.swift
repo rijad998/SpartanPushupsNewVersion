@@ -17,7 +17,7 @@ public struct roundCircleSize {
     static var radius: CGFloat = (diameter/2)
 }
 
-public var workSectionCircleDiameter: CGFloat = 260
+public var workSectionDiameter: CGFloat = 260
 
 public var bgImg: UIImage {
     
