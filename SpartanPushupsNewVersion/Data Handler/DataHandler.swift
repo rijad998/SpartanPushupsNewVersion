@@ -34,6 +34,13 @@ class DataHandler {
         }
     }
     
+    static var activeSeries: Series {
+        get {
+            // return isAppActiveConfig.isAppActive ? listLevels[activeLevelIndex].series[activeSeriesIndex] : getEmptySeries()
+            return getEmptySeries()
+        }
+    }
+    
     fileprivate static func getEmptySeries() -> Series {
         let series = Series(onIndex: 0)
         //for (index, _) in (series.rounds).enumerated() {
