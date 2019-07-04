@@ -79,7 +79,10 @@ extension WorkSectionView: RestTimerDelegate {
     func getTimerRest(currentTime: Int) {
         repsTimeLbl.text = "\(currentTime)"
         if currentTime == 0 {
-            
+            AsyncUtility.delay(0.5){
+                self.viewModel.getLabelPushups()
+                self.repsTimeLbl.isUserInteractionEnabled = true
+            }
         }
     }
 }

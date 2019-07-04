@@ -20,14 +20,32 @@ class WorkSectionModel {
     
     init() {}
     
-    func getLabelText() {
+    func getLabelRestText() {
         if let rest = model.rest {
             restTimer.fireTimer(restTime: rest)
+        } else {
+            getLabelPushups()
         }
-        
     }
     
-    func getNextSeries() {
+    func getLabelPushups() {
+        if model.current >= 0 {
+            model.current -= 1
+            delegate?.getModelRep(reps: model.current)
+            if model.current == 0 {
+                AsyncUtility.delay(0.5) {
+                    DataHandler.markNextRoundAnActive()
+                    self.reload()
+                    self.getLabelRestText()
+                }
+                self.model.state = .activeDone
+                model.current = model.reps
+            }
+        }
+    }
+    
+    func reload() {
+        model = DataHandler.activeRound
         
     }
 }

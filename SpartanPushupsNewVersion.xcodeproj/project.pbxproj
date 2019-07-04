@@ -35,6 +35,7 @@
 		837ACD7322C243A8009B53E2 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD7222C243A8009B53E2 /* DataHandler.swift */; };
 		837ACD7622C26C8E009B53E2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837ACD7522C26C8E009B53E2 /* Enums.swift */; };
 		837D191F22C4D80400B55820 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837D191E22C4D80400B55820 /* Timer.swift */; };
+		83F103CD22CE4052005F41D4 /* AsyncUtilityDelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F103CC22CE4052005F41D4 /* AsyncUtilityDelay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		837ACD7222C243A8009B53E2 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		837ACD7522C26C8E009B53E2 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		837D191E22C4D80400B55820 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		83F103CC22CE4052005F41D4 /* AsyncUtilityDelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncUtilityDelay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				837D191E22C4D80400B55820 /* Timer.swift */,
+				83F103CC22CE4052005F41D4 /* AsyncUtilityDelay.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				837ACD7322C243A8009B53E2 /* DataHandler.swift in Sources */,
 				837ACD6E22C22C4B009B53E2 /* Neon.swift in Sources */,
 				837D191F22C4D80400B55820 /* Timer.swift in Sources */,
+				83F103CD22CE4052005F41D4 /* AsyncUtilityDelay.swift in Sources */,
 				837ACD7122C22C4B009B53E2 /* DeviceProperties.swift in Sources */,
 				836D6D3C22CCDDB300B54F96 /* WorkSectionModel.swift in Sources */,
 				837ACD7022C22C4B009B53E2 /* Config.swift in Sources */,

@@ -74,3 +74,4 @@ public struct isAppActiveConfig {
         UserDefaults.standard.synchronize()
     }
 }
+
