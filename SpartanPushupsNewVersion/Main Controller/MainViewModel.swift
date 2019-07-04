@@ -10,13 +10,14 @@ import Foundation
 import UIKit
 
 protocol MainViewModelDelegate {
-    func returnLevel(series: Series)
+    func returnActiveSeries(series: Series)
 }
 
 class MainViewModel {
     
     var delegate: MainViewModelDelegate?
     var currentProgress: Int!
+    var model = DataHandler.activeSeries
     
     init() {}
     
@@ -25,6 +26,6 @@ class MainViewModel {
     }
     
     func getActiveLevel() {
-        delegate?.returnLevel(series: DataHandler.activeSeries)
+        delegate?.returnActiveSeries(series: model)
     }
 }

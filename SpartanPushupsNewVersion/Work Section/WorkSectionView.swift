@@ -9,11 +9,16 @@
 import Foundation
 import UIKit
 
+protocol WorkSectionViewDelegate {
+     func reload()
+}
+
 class WorkSectionView: UIView {
     
     fileprivate let bgImgView = UIImageView(image: UIImage(named: "bg-circle.png"))
     fileprivate let repsTimeLbl = UILabel()
     fileprivate var viewModel = WorkSectionModel()
+    var delegate: WorkSectionViewDelegate!
     
     init(circleDiameter: CGFloat) {
         
@@ -64,9 +69,15 @@ class WorkSectionView: UIView {
         repsTimeLbl.numberOfLines = 2
         repsTimeLbl.text = "TAP TO\nSTART"
     }
+    
 }
 
 extension WorkSectionView: WorkSectionModelDelegate {
+    
+    func reloadView() {
+        delegate?.reload()
+    }
+    
     
     func getModelRep(reps: Int) {
         repsTimeLbl.font = LabelFont.regular
@@ -80,7 +91,7 @@ extension WorkSectionView: RestTimerDelegate {
         repsTimeLbl.text = "\(currentTime)"
         if currentTime == 0 {
             AsyncUtility.delay(0.5){
-                self.viewModel.getLabelPushups()
+                self.viewModel.doPushups()
                 self.repsTimeLbl.isUserInteractionEnabled = true
             }
         }

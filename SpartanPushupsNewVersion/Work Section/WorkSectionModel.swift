@@ -10,6 +10,7 @@ import Foundation
 
 protocol WorkSectionModelDelegate {
     func getModelRep(reps: Int)
+    func reloadView()
 }
 
 class WorkSectionModel {
@@ -24,28 +25,35 @@ class WorkSectionModel {
         if let rest = model.rest {
             restTimer.fireTimer(restTime: rest)
         } else {
-            getLabelPushups()
+            doPushups()
         }
     }
     
-    func getLabelPushups() {
+    func doPushups() {
         if model.current >= 0 {
             model.current -= 1
             delegate?.getModelRep(reps: model.current)
             if model.current == 0 {
-                AsyncUtility.delay(0.5) {
+                if model.onIndex == 4 {
+                    // OPEN THIRD VIEW
+                    AsyncUtility.delay(0.5) {
+                        
+                    }
+                } else {
+                    self.model.state = .activeDone
+                    model.current = model.reps
                     DataHandler.markNextRoundAnActive()
-                    self.reload()
-                    self.getLabelRestText()
+                    AsyncUtility.delay(0.5) {
+                        self.reload()
+                        self.getLabelRestText()
+                    }
                 }
-                self.model.state = .activeDone
-                model.current = model.reps
             }
         }
     }
     
     func reload() {
         model = DataHandler.activeRound
-        
+        delegate?.reloadView()
     }
 }
