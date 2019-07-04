@@ -9,16 +9,25 @@
 import Foundation
 
 protocol WorkSectionModelDelegate {
-    func getModel(model: Round)
+    func getModelRep(reps: Int)
 }
 
 class WorkSectionModel {
     
     var delegate: WorkSectionModelDelegate!
+    var model = DataHandler.activeRound
+    var restTimer = RestTimer()
     
     init() {}
     
-    func getNextRound() {
-        delegate?.getModel(model: DataHandler.activeRounds)
+    func getLabelText() {
+        if let rest = model.rest {
+            restTimer.fireTimer(restTime: rest)
+        }
+        
+    }
+    
+    func getNextSeries() {
+        
     }
 }

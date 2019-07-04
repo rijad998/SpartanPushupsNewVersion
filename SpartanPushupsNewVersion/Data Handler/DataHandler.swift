@@ -34,7 +34,7 @@ class DataHandler {
         }
     }
     
-    static var activeRounds: Round {
+    static var activeRound: Round {
         get {
             return activeSeries.rounds[activeRoundIndex]
         }
@@ -47,11 +47,19 @@ class DataHandler {
         }
     }
     
+    static func getActiveLevel() -> Level? {
+        
+        if let level = getLevelByIndex(levelIndex: activeLevelIndex) {
+            return level
+        }
+        return nil
+    }
+    
     fileprivate static func getEmptySeries() -> Series {
         let series = Series(onIndex: 0)
         //for (index, _) in (series.rounds).enumerated() {
         for index in 0...4 {
-            let roundZ = Round(reps: 0, rest: 0, current: nil, onIndex: index)
+            let roundZ = Round(reps: 0, rest: nil, onIndex: index)
             series.rounds.append(roundZ)
         }
         return series
@@ -62,16 +70,6 @@ class DataHandler {
         let finishedSeries = activeLevel.series.filter{$0.state == .finished}.count
         return Int(( 100 / activeLevel.series.count ) * finishedSeries)
     }
-    
-    
-    static func getActiveLevel() -> Level? {
-        
-        if let level = getLevelByIndex(levelIndex: activeLevelIndex) {
-            return level
-        }
-        return nil
-    }
-    
     
     fileprivate static func generateSeries(limitPerLevel: Int, startingSeries: Series) {
         
@@ -86,7 +84,7 @@ class DataHandler {
                 if j != 0 {
                     rest = 11
                 }
-                let round = Round(reps: reps, rest: rest, current: nil, onIndex: j)
+                let round = Round(reps: reps, rest: rest, onIndex: j)
                 newSeries.rounds.append(round)
             }
         }
@@ -117,7 +115,7 @@ class DataHandler {
                 if index != 0 {
                     rest = 11
                 }
-                let round = Round(reps: randomNum, rest: rest, current: nil, onIndex: index)
+                let round = Round(reps: randomNum, rest: rest, onIndex: index)
                 series.rounds.append(round)
             }
             return series
@@ -185,14 +183,14 @@ class Round {
     
     var reps: Int
     var rest: Int?
-    var current: Int?
+    var current: Int
     var onIndex: Int
     var state: ActiveRound = .inactive
     
-    init(reps: Int, rest: Int?, current: Int?, onIndex: Int) {
+    init(reps: Int, rest: Int?, onIndex: Int) {
         self.reps = reps
         self.rest = rest
-        self.current = current ?? reps
+        self.current = reps
         self.onIndex = onIndex
     }
 }

@@ -10,23 +10,20 @@ import Foundation
 import UIKit
 
 protocol RestTimerDelegate {
-    func returnTime(currentTime: Int)
+    func getTimerRest(currentTime: Int)
 }
 
 class RestTimer {
     
-    fileprivate var restTime: Int
-    fileprivate var restartTime: Int
+    fileprivate var restTime: Int = 0
     fileprivate var timer = Timer()
     var delegate: RestTimerDelegate?
     fileprivate var isRunning = false
     
-    init(restTime: Int) {
-        self.restTime = restTime
-        self.restartTime = restTime
-    }
+    init() {}
     
-    func fireTimer() {
+    func fireTimer(restTime: Int) {
+        self.restTime = restTime
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
         timer.fire()
         isRunning = true
@@ -34,7 +31,7 @@ class RestTimer {
     
     
     @objc func timerAction() {
-        delegate?.returnTime(currentTime: restTime)
+        delegate?.getTimerRest(currentTime: restTime)
         if restTime == 0 {
             timerInvalidate()
         }
@@ -45,10 +42,4 @@ class RestTimer {
         isRunning = false
         timer.invalidate()
     }
-    
-    func timerRestart() {
-        restTime = restartTime
-        fireTimer()
-    }
-    
 }

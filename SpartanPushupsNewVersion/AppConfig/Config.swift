@@ -34,6 +34,11 @@ public struct Font {
     static let exoItalic = "Exo-Italic"
 }
 
+public struct LabelFont {
+    static let regular = UIFont(name: Font.exoBoldItalic, size: 60)
+    static let start = UIFont(name: Font.exoBoldItalic, size: 35)
+}
+
 public struct Tabs {
     
     static let numberOfLevels = 4

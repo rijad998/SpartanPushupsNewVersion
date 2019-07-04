@@ -13,7 +13,7 @@ class WorkSectionView: UIView {
     
     fileprivate let bgImgView = UIImageView(image: UIImage(named: "bg-circle.png"))
     fileprivate let repsTimeLbl = UILabel()
-    fileprivate var noseTap = UITapGestureRecognizer()
+    fileprivate var viewModel = WorkSectionModel()
     
     init(circleDiameter: CGFloat) {
         
@@ -43,11 +43,45 @@ class WorkSectionView: UIView {
         
         addSubview(bgImgView)
         bgImgView.addSubview(repsTimeLbl)
-        repsTimeLbl.font = UIFont(name: Font.exoBoldItalic, size: 60)
+        viewModel.restTimer.delegate = self
+        repsTimeLbl.font = LabelFont.regular
         repsTimeLbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         repsTimeLbl.textAlignment = .center
         repsTimeLbl.numberOfLines = 0
         repsTimeLbl.text = "Test text"
+        let noseTap = UITapGestureRecognizer(target: self, action: #selector(handleNoseTap(_:)))
+        repsTimeLbl.addGestureRecognizer(noseTap)
+        if !isAppActiveConfig.isAppActive {repsTimeLbl.isUserInteractionEnabled = false}
         
     }
+    
+    @objc func handleNoseTap(_ sender: UITapGestureRecognizer? = nil) {
+        
+    }
+    
+    func tapToStart() {
+        repsTimeLbl.font = LabelFont.start
+        repsTimeLbl.numberOfLines = 2
+        repsTimeLbl.text = "TAP TO\nSTART"
+    }
 }
+
+extension WorkSectionView: WorkSectionModelDelegate {
+    
+    func getModelRep(reps: Int) {
+        repsTimeLbl.font = LabelFont.regular
+    }
+
+}
+
+extension WorkSectionView: RestTimerDelegate {
+    
+    func getTimerRest(currentTime: Int) {
+        repsTimeLbl.text = "\(currentTime)"
+        if currentTime == 0 {
+            
+        }
+    }
+}
+
+
