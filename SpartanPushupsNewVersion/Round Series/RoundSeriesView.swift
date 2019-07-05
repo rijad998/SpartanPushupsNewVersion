@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Whole series of round items
 class RoundSeriesView: UIView {
     
     var roundSeriesList: [SeriaItem] = []
@@ -28,6 +29,8 @@ class RoundSeriesView: UIView {
         layout()
     }
     
+    /// Main setup with for loop for filling the array
+    /// and putting it on the superview
     func setup() {
         
         addSubview(roundSeriesSubView)
@@ -42,6 +45,7 @@ class RoundSeriesView: UIView {
         roundSeriesSubView.frame.size.height = 40
     }
     
+    /// Main layout func
     func layout() {
         roundSeriesSubView.onCenter(roundSeriesSubView.width, roundSeriesSubView.height)
         var xOffset: CGFloat = 0
@@ -51,6 +55,7 @@ class RoundSeriesView: UIView {
         }
     }
     
+    /// Reload function that gets called from Work section
     func reload() {
         roundSeriesSubView.removeFromSuperview()
         roundSeriesList.removeAll()
@@ -60,6 +65,8 @@ class RoundSeriesView: UIView {
     
 }
 
+/// Model of Round in the series with all
+/// necessary components
 class SeriaItem: UIView {
     
     fileprivate var roundCircle = UIView()
@@ -82,6 +89,7 @@ class SeriaItem: UIView {
         layout()
     }
     
+    /// Main layout function
     func layout() {
         roundCircle.onSide(.left, 0, width: 40, height: 40)
         if !horizontalLine.isHidden {
@@ -90,6 +98,7 @@ class SeriaItem: UIView {
         pushUpLabel.fillSuperView()
     }
     
+    /// Main setup function that sets all parameters
     func setup() {
         addSubview(horizontalLine)
         horizontalLine.isHidden = !(frame.width > 40)
@@ -103,10 +112,9 @@ class SeriaItem: UIView {
         reload()
     }
     
+    /// Reloads label on the circle
     func reload() {
         pushUpLabel.text = "0" == "\(model.reps)" ? "" : "\(model.reps)"
-        //pushUpLabel.text = model.reps == 0 ? "" : "\(model.reps)"
-        
         setRoundsByState()
     }
     

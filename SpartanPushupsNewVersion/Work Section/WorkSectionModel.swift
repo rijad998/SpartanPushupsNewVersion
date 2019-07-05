@@ -8,12 +8,15 @@
 
 import Foundation
 
+/// View Model delegate
 protocol WorkSectionModelDelegate {
     func getModelRep(reps: Int)
     func reloadView()
     func changeFont()
 }
 
+/// View model for section which interacts with user
+/// It gets all data and passes it to the round circle view
 class WorkSectionModel {
     
     var delegate: WorkSectionModelDelegate!
@@ -22,6 +25,7 @@ class WorkSectionModel {
     
     init() {}
     
+    /// Function for calling timer and writing it on the circle view
     func getLabelRestText() {
         if let rest = model.rest {
             delegate?.changeFont()
@@ -31,6 +35,8 @@ class WorkSectionModel {
         }
     }
     
+    /// Main function for pushups. It decreases number of pushups,
+    /// Check for rounds, series, invokes new series etc.
     func doPushups() {
         if model.current >= 0 {
             model.current -= 1
@@ -46,14 +52,15 @@ class WorkSectionModel {
                     model.current = model.reps
                     DataHandler.markNextRoundAnActive()
                     AsyncUtility.delay(0.5) {
-                        self.reload()
                         self.getLabelRestText()
                     }
+                    reload()
                 }
             }
         }
     }
     
+    /// Function for reloading views
     func reload() {
         model = DataHandler.activeRound
         delegate?.reloadView()

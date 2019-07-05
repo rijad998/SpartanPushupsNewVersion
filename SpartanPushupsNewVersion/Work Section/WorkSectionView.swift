@@ -13,6 +13,8 @@ protocol WorkSectionViewDelegate {
      func reload()
 }
 
+/// Main section which interacts with user with view and
+/// all needed components
 class WorkSectionView: UIView {
     
     fileprivate let bgImgView = UIImageView(image: UIImage(named: "bg-circle.png"))
@@ -32,12 +34,15 @@ class WorkSectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// Overriding layoutSubviews function with my
+    /// own layout
     override func layoutSubviews() {
         
         super.layoutSubviews()
         layout()
     }
     
+    /// Custom layout
     func layout() {
         
         self.layer.cornerRadius = (self.width / 2)
@@ -45,10 +50,13 @@ class WorkSectionView: UIView {
         repsTimeLbl.fillSuperView()
     }
     
+    /// Main setup function, sets up main label, image,
+    /// UITapRecognizer etc.
     func setup() {
         
         addSubview(bgImgView)
         bgImgView.addSubview(repsTimeLbl)
+        bgImgView.isUserInteractionEnabled = true
         viewModel.restTimer.delegate = self
         repsTimeLbl.font = LabelFont.regular
         repsTimeLbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -62,10 +70,13 @@ class WorkSectionView: UIView {
         
     }
     
+    /// Function that handles tap on the circle
     @objc func handleNoseTap(_ sender: UITapGestureRecognizer? = nil) {
+        print("slgsjfhlflsflfs------------------------------------")
         checkStart ? tapToStart() : viewModel.getLabelRestText()
     }
     
+    /// Function that writes "Tap to Start" on the circle
     func tapToStart() {
         repsTimeLbl.font = LabelFont.start
         repsTimeLbl.numberOfLines = 2
@@ -75,6 +86,7 @@ class WorkSectionView: UIView {
     
 }
 
+/// Implementation of view models delegate
 extension WorkSectionView: WorkSectionModelDelegate {
     
     func reloadView() {
@@ -91,9 +103,12 @@ extension WorkSectionView: WorkSectionModelDelegate {
 
 }
 
+/// Implementation of rest timrs delegate
 extension WorkSectionView: RestTimerDelegate {
     
+    /// Function that writis time on the label
     func getTimerRest(currentTime: Int) {
+        repsTimeLbl.isUserInteractionEnabled = false
         repsTimeLbl.text = "\(currentTime)"
         if currentTime == 0 {
             AsyncUtility.delay(0.5){

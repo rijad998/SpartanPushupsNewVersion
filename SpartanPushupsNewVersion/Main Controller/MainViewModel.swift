@@ -9,10 +9,14 @@
 import Foundation
 import UIKit
 
+/// Main delegate of main view model
 protocol MainViewModelDelegate {
     func returnActiveSeries(series: Series)
 }
 
+/// Main view model of main controller
+/// Currently in charge of gettign progress and
+/// parsing active series to the main controller
 class MainViewModel {
     
     var delegate: MainViewModelDelegate?
@@ -21,10 +25,12 @@ class MainViewModel {
     
     init() {}
     
+    /// Returns progress to the main controller
     func getProgress() {
         self.currentProgress = DataHandler.getProgress()
     }
     
+    /// Returns active level to the main controller
     func getActiveLevel() {
         delegate?.returnActiveSeries(series: model)
     }

@@ -8,12 +8,15 @@
 
 import UIKit
 
+/// Main View Controller
 class MainViewController: UIViewController {
 
     fileprivate let mainViewModel = MainViewModel()
     fileprivate var roundSeriesView: RoundSeriesView = RoundSeriesView()
     fileprivate var workSection: WorkSectionView = WorkSectionView(circleDiameter: workSectionDiameter)
     
+    /// First function that gets called after loading, it
+    /// sets background image and calles setup function
     override func viewDidLoad() {
         super.viewDidLoad()
         view.layer.contents = UIImage.loadImageData("bg.png")?.cgImage
@@ -29,9 +32,10 @@ class MainViewController: UIViewController {
         super.viewDidLayoutSubviews()
         // layout()
         roundSeriesView.onSide(.top, 150, width: view.bounds.width, height: 64)
-        workSection.onSide(.top, 250, width: workSection.width, height: workSection.height)
+        workSection.onSide(.top, 300, width: workSection.width, height: workSection.height)
     }
     
+    /// Main setup function
     func setup() {
         mainViewModel.delegate = self
         workSection.delegate = self
@@ -40,6 +44,7 @@ class MainViewController: UIViewController {
     }
 }
 
+/// Implementation of main view models delegate
 extension MainViewController: MainViewModelDelegate {
     
     func returnActiveSeries(series: Series) {
@@ -47,6 +52,7 @@ extension MainViewController: MainViewModelDelegate {
     }
 }
 
+/// Implementation of work section delegate
 extension MainViewController: WorkSectionViewDelegate {
     
     func reload() {
