@@ -19,6 +19,7 @@ class WorkSectionView: UIView {
     fileprivate let repsTimeLbl = UILabel()
     fileprivate var viewModel = WorkSectionModel()
     var delegate: WorkSectionViewDelegate!
+    var checkStart: Bool = true
     
     init(circleDiameter: CGFloat) {
         
@@ -56,18 +57,20 @@ class WorkSectionView: UIView {
         repsTimeLbl.text = "Test text"
         let noseTap = UITapGestureRecognizer(target: self, action: #selector(handleNoseTap(_:)))
         repsTimeLbl.addGestureRecognizer(noseTap)
-        if !isAppActiveConfig.isAppActive {repsTimeLbl.isUserInteractionEnabled = false}
+        repsTimeLbl.isUserInteractionEnabled = true
+        //if !isAppActiveConfig.isAppActive {repsTimeLbl.isUserInteractionEnabled = false}
         
     }
     
     @objc func handleNoseTap(_ sender: UITapGestureRecognizer? = nil) {
-        
+        checkStart ? tapToStart() : viewModel.getLabelRestText()
     }
     
     func tapToStart() {
         repsTimeLbl.font = LabelFont.start
         repsTimeLbl.numberOfLines = 2
         repsTimeLbl.text = "TAP TO\nSTART"
+        checkStart = false
     }
     
 }
@@ -78,9 +81,12 @@ extension WorkSectionView: WorkSectionModelDelegate {
         delegate?.reload()
     }
     
+    func changeFont() {
+        repsTimeLbl.font = LabelFont.regular
+    }
     
     func getModelRep(reps: Int) {
-        repsTimeLbl.font = LabelFont.regular
+        repsTimeLbl.text = "\(reps)"
     }
 
 }

@@ -42,14 +42,14 @@ class MainViewController: UIViewController {
 
 extension MainViewController: MainViewModelDelegate {
     
-    func returnLevel(series: Series) {
-        //roundSeriesView = RoundSeriesView(series: series)
+    func returnActiveSeries(series: Series) {
+        print("Otvara zadnji view")
     }
 }
 
 extension MainViewController: WorkSectionViewDelegate {
     
     func reload() {
-        <#code#>
+        roundSeriesView.reload()
     }
 }

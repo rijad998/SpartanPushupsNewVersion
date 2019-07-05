@@ -51,6 +51,13 @@ class RoundSeriesView: UIView {
         }
     }
     
+    func reload() {
+        roundSeriesSubView.removeFromSuperview()
+        roundSeriesList.removeAll()
+        setup()
+        layout()
+    }
+    
 }
 
 class SeriaItem: UIView {

@@ -11,6 +11,7 @@ import Foundation
 protocol WorkSectionModelDelegate {
     func getModelRep(reps: Int)
     func reloadView()
+    func changeFont()
 }
 
 class WorkSectionModel {
@@ -23,6 +24,7 @@ class WorkSectionModel {
     
     func getLabelRestText() {
         if let rest = model.rest {
+            delegate?.changeFont()
             restTimer.fireTimer(restTime: rest)
         } else {
             doPushups()
@@ -37,7 +39,7 @@ class WorkSectionModel {
                 if model.onIndex == 4 {
                     // OPEN THIRD VIEW
                     AsyncUtility.delay(0.5) {
-                        
+                        print ("Kraj serije")
                     }
                 } else {
                     self.model.state = .activeDone

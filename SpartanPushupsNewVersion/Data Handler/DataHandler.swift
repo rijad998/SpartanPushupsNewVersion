@@ -43,7 +43,7 @@ class DataHandler {
     static var activeSeries: Series {
         get {
             // return isAppActiveConfig.isAppActive ? listLevels[activeLevelIndex].series[activeSeriesIndex] : getEmptySeries()
-            return getEmptySeries()
+            return generateStartingSeries()
         }
     }
     
@@ -71,8 +71,21 @@ class DataHandler {
         return Int(( 100 / activeLevel.series.count ) * finishedSeries)
     }
     
-    fileprivate static func generateSeries(limitPerLevel: Int, startingSeries: Series) {
-        
+    fileprivate static func generateStartingSeries() -> Series {
+        let seriess = Series(onIndex: 0)
+        for j in 0 ... roundsLimit - 1 {
+            let reps = Int.random(in: 2...3)
+            var rest: Int?
+            if j != 0 {
+                rest = 11
+            }
+            let round = Round(reps: reps, rest: rest, onIndex: j)
+            seriess.rounds.append(round)
+        }
+        return seriess
+    }
+    
+    fileprivate static func generateLevelSeries(limitPerLevel: Int, startingSeries: Series) {
         for i in 1 ... limitPerLevel - 1 {
             
             let newSeries = Series(onIndex: i)
